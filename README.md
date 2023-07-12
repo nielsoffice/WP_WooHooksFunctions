@@ -41,7 +41,7 @@ add_action('wp', function(){ echo '<pre>';print_r($GLOBALS['wp_filter']); echo '
 <br /> All WP core Filter lists
 <br /> https://codex.wordpress.org/Plugin_API/Filter_Reference
 
-<br /> All Woo hooks
+<br /> All Woo Hooks
 <br /> https://wp-kama.com/plugin/woocommerce/hook
 <br /> All Woo Functions
 <br /> https://wp-kama.com/plugin/woocommerce/function
