@@ -1,6 +1,9 @@
 # WP_WooHooks-Function
 WordPress WooCommerce all hooks and function 
 
+``` add_action( string $hook_name, callable $callback, int $priority = 10, int $accepted_args = 1 ): true ```
+<br /> Reference: https://developer.wordpress.org/reference/functions/add_action/
+
 ```PHP
 Filters and actions are both assigned to hooks. Functions assigned to hooks are stored in global
 $wp_filter variable. So all you have to do is to print_r it.
@@ -20,6 +23,7 @@ PS. add_action function makes a add_filter call. And the latter does $wp_filter[
 add_action('wp', function(){ echo '<pre>';print_r($GLOBALS['wp_filter']); echo '</pre>';exit; } );
 ```
 
+
 <br /> All WP core Hook lists 
 <br /> https://codex.wordpress.org/Plugin_API/Action_Reference
 <br /> All WP core Filter lists
@@ -32,6 +36,8 @@ add_action('wp', function(){ echo '<pre>';print_r($GLOBALS['wp_filter']); echo '
 
 <br /> Create/Assigned a custom hooks
 <br /> https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
+<br /> Add Filter WP Core
+<br /> https://nielsoffice2017.wordpress.com/2021/11/21/wordpress-add_filter/
 
 <br /> And also 
 <br /> https://github.com/nielsoffice/wooCommerce-DisplayProducts-php-loop
