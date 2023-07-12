@@ -5,7 +5,7 @@ WordPress WooCommerce all hooks and function
 <br /> Reference: https://developer.wordpress.org/reference/functions/add_action/
 
 ``` add_filter( string $hook_name, callable $callback, int $priority = 10, int $accepted_args = 1 ): true ```
-<br /> https://developer.wordpress.org/reference/functions/add_filter/
+<br /> Reference: https://developer.wordpress.org/reference/functions/add_filter/
 
 <br /> Approach Static class method:
 <br /> ```  add_filter( 'media_upload_newtab', array( 'My_Class', 'media_upload_callback' ) ); ```
