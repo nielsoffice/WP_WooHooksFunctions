@@ -1,6 +1,29 @@
 # WP_WooHooks-Function
 WordPress WooCommerce all hooks and function 
 
+``` apply_filters( string $hook_name, mixed $value, mixed $args ): mixed ```
+<br /> Reference: https://developer.wordpress.org/reference/functions/apply_filters/
+
+```PHP
+// Create a Custom filter | The filter callback function.
+function add_custom_filter( $string, $arg1, $arg2 ) {
+  // filtered result condition
+ 	if( isset($string) ) {	return $string; } 
+  // default value set
+  return 'The filter';
+}
+add_filter( 'custom_filter_name', 'add_custom_filter', 10, 3 );
+
+// if NOT filter the value return as (string) " The filter "
+$value = apply_filters( 'custom_filter_name',  $string, $arg1, $arg2 );
+
+// if this is FILTERED the value return as (string) " filtered this! "
+$value = apply_filters( 'custom_filter_name', 'filtered this!', $arg1, $arg2 );
+
+var_dump($value);
+
+```
+
 ``` add_action( string $hook_name, callable $callback, int $priority = 10, int $accepted_args = 1 ): true ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/add_action/
 
