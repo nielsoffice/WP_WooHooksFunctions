@@ -22,6 +22,9 @@ $value = apply_filters( 'custom_filter_name', 'filtered this!', $arg1, $arg2 );
 
 var_dump($value);
 
+// NOTE: Set the result based on request return value, then place using hook 
+// Assign Custom add-hook: https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
+
 ```
 
 ``` add_action( string $hook_name, callable $callback, int $priority = 10, int $accepted_args = 1 ): true ```
