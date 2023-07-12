@@ -27,6 +27,9 @@ var_dump($value);
 
 ```
 
+``` remove_action( string $hook_name, callable|string|array $callback, int $priority = 10 ): bool ```
+<br /> Reference: https://developer.wordpress.org/reference/functions/remove_action/
+
 ``` add_action( string $hook_name, callable $callback, int $priority = 10, int $accepted_args = 1 ): true ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/add_action/
 
