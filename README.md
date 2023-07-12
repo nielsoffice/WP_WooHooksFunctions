@@ -144,6 +144,8 @@ And hook said: "I ate ice cream with Peter Pan."
 <br /> https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
 <br /> Add Filter WP Core
 <br /> https://nielsoffice2017.wordpress.com/2021/11/21/wordpress-add_filter/
+<br /> https://nielsoffice2017.wordpress.com/2021/11/20/wordpress-apply-filter-hook-custom-filter/
+<br /> https://github.com/nielsoffice/WP-CPT-apply-custom-filter/blob/main/functions.php
 
 <br /> And also 
 <br /> https://github.com/nielsoffice/wooCommerce-DisplayProducts-php-loop
