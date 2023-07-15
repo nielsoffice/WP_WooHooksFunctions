@@ -6,7 +6,7 @@ WordPress WooCommerce all hooks and function
 <br /> do_action() : Executes our "hooked" function that was set 
 ```PHP
 // add action | This is where we can set our function 
-add_action( 'custom_name_of_hook', 'call_back_func_name');
+add_action( 'custom_name_of_hook', 'call_back_func_name', 10, 2 );
 function call_back_func_name( $a, $b ){
  
   // Here we can do something with the parameters
@@ -59,11 +59,19 @@ var_dump($value);
 ``` do_action( string $hook_name, mixed $arg ) ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/do_action/
 
+<br /> NOTE: ```  int $priority = 10 ``` by default set to 10 means first, for instance, you have multiple actions with that hook
+like ex. the first hook getting user_id, the second hook finds the post by user_id which is priority 20 because we have to GET the user_id first before 
+we can use the id to filter the post etc...
+
+<br /> NOTE: ``` int $accepted_args = 1 ``` by default set to 1 means the argument that you can pass to the function hooks is one
+so you have to set how many arguments or parameters you will supply for the particular hook.
+<br /> ``` ex. add_action( 'custom_name_of_hook', 'call_back_func_name', 10, 2 ); ```
+
 <br /> Approach Static class method:
 <br /> ```  add_filter( 'media_upload_newtab', array( 'My_Class', 'media_upload_callback' ) ); ```
 <br /> Approach Instance method:
 <br /> ```  add_filter( 'media_upload_newtab', array( $this, 'media_upload_callback' ) ); ```
-<br /> Approach You can also pass an an anonymous function as a callback:
+<br /> Approach You can also pass an anonymous function as a callback:
 <br /> ```  add_filter( 'the_title', function( $title ) { return '<strong>' . $title . '</strong>'; } ); ```
 <br />
 
