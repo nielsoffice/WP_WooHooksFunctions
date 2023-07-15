@@ -17,7 +17,7 @@ function call_back_func_name( $a, $b ){
 do_action( 'custom_name_of_hook', 3, 4 );
 // Result: false
 ```
-<br /> Hooks
+<br /> HOOKS
 <br /> add_filtern() : Hooks our custom function set everything on it
 <br /> apply_filter() : Executes our "hooked" function that was set 
 
