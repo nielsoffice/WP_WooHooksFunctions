@@ -1,4 +1,4 @@
-# WP_WooHooks-Function
+# WP_WooHooksFunction
 WordPress WooCommerce all hooks and function 
 
 <br /> ACTIONS
