@@ -8,12 +8,18 @@ WordPress WooCommerce all hooks and function
 // add action | This is where we can set our function 
 add_action( 'custom_name_of_hook', 'call_back_func_name', 10, 2 );
 function call_back_func_name( $a, $b ){
- 
+   
+  // to pass a data to this function we have to use a do_action();
   // Here we can do something with the parameters
   if( $a == $b ) { return true; }
 }
 
 // do_action | This is where we can pass the argument that we set from our custom hooks
+/* Set a filter using apply_filter then use add_action to filter the data and use do_action   
+   Once the call_back_function has an argument before we pass it to the action 
+   means do_action comes into play once call back function from action('apply_filter_name','call_back_function') 
+   having parameter or argument */
+
 do_action( 'custom_name_of_hook', 3, 4 );
 // Result: false
 ```
