@@ -2,7 +2,7 @@
 WordPress WooCommerce all hooks and function 
 
 <br /> ACTIONS
-<br /> add_action() : hooks our custom function set everything on it
+<br /> add_action() : Hooks our custom function set everything on it
 <br /> do_action() : Executes our "hooked" function that was set 
 ```PHP
 // add action | This is where we can set our function 
@@ -19,7 +19,7 @@ do_action( 'custom_name_of_hook', 3, 4 );
 ```
 <br /> Hooks
 <br /> add_filtern() : Hooks our custom function set everything on it
-<br /> apply_filter() : xecutes our "hooked" function that was set 
+<br /> apply_filter() : Executes our "hooked" function that was set 
 
 <br /> ``` apply_filters( string $hook_name, mixed $value, mixed $args ): mixed ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/apply_filters/
