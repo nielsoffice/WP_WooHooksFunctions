@@ -1,7 +1,26 @@
 # WP_WooHooks-Function
 WordPress WooCommerce all hooks and function 
 
-``` apply_filters( string $hook_name, mixed $value, mixed $args ): mixed ```
+<br /> ACTIONS
+<br /> add_action() : hooks our custom function set everything on it
+<br /> do_action() : Executes our "hooked" function that was set 
+```PHP
+// add action | This is where we can set our function 
+add_action( 'custom_name_of_hook', 'call_back_func_name');
+function call_back_func_name( $a, $b ){
+ 
+  // Here we can do something with the parameters
+  if( $a == $b ) { return true; }
+}
+
+// do_action | This is where we can pass the argument that we set from our custom hooks
+do_action( 'custom_name_of_hook', 3, 4 );
+// Result: false
+```
+<br /> Hooks
+<br /> add_filtern() : Hooks our custom function set everything on it
+<br /> apply_filter() : xecutes our "hooked" function that was set 
+<br /> ``` apply_filters( string $hook_name, mixed $value, mixed $args ): mixed ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/apply_filters/
 
 ```PHP
