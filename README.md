@@ -159,6 +159,8 @@ And hook said: "I ate ice cream with Peter Pan."
 <br /> https://wp-kama.com/plugin/woocommerce/hook
 <br /> All Woo Functions
 <br /> https://wp-kama.com/plugin/woocommerce/function
+<br /> General Snippet
+<br /> https://woocommerce.com/documentation/plugins/woocommerce/woocommerce-codex/snippets/
 
 <br /> Create/Assigned a custom hooks
 <br /> https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
