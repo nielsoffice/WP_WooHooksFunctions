@@ -45,8 +45,9 @@ function todays_i_modifying( $args , $date, $month, $yr) {
   // First is argument is Date
   // Second is Month
   // Third is YR
+  $arg = '<i>' . '</i>';
 
-  return $arg . ' ' . $date . ' ' . $month . ' ' . $yr;
+  return $arg. ' '. $date . ' ' . $month . ' ' . $yr;
   // Expected Result: Current Value is Event 16, July 2023
   
 }
@@ -74,6 +75,10 @@ $value = apply_filters( 'custom_filter_i_like',  $string, $arg1, $arg2 );
 $value = apply_filters( 'custom_filter_i_like', 'filtered this!', $arg1, $arg2 );
 
 var_dump($value);
+
+/* Conclusion: For me add_action and add_filter() are similar however let's say the add_filter is used to modify the data before and out of the database
+while the add_action will replace or add something to it, ui layout related etc... 
+*/
 
 // NOTE: Set the result based on request return value, then place using hook 
 // Assign Custom add-hook: https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
