@@ -106,6 +106,16 @@ function modifying(  $string,  $user_name, $user_id ) {
  
 }
 
+$title_filtered = apply_filters( 'the_title', $title , $date );
+add_filters('the_title', modifying_title, 10, 2); 
+function modifying_title( $title, $date ) {
+  
+  $do_print = $title + ' : ' + $date;
+  return $do_print;  
+  // Result: Today's blog post : July 2023
+ 
+}
+
 // NOTE: Set the result based on request return value, then place using hook 
 // Assign Custom add-hook: https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
 
