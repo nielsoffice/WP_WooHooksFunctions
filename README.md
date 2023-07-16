@@ -57,7 +57,7 @@ do_action('my_filter_name', wp_date( 'F' ), wp_date( 'j' ), wp_date( 'Y' ));
 /* Present & Future */
 //  Create a Custom filter | The filter callback function.
 add_filter('custom_filter_i_like','func_for_this_custom_filter', 10, 3 );
-function func_for_this_custom_filter() {
+function func_for_this_custom_filter( $string, $arg1, $arg2  ) {
 
   // filtered result condition
   if( isset($string) ) { return $string; } 
