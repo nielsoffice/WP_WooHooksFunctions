@@ -76,6 +76,9 @@ function modifying(  $string,  $arg1, $arg2 ) {
 
 /* Conclusion: For me add_action and add_filter() are similar however let's say the add_filter is used to modify the data before and out of the database
 while the add_action will replace or add something to it, ui layout related etc... 
+ In addition, add_action() will use if you will do something with wp core function, while add_filter() will use once you add a filter to the function
+ do_action() will use if you pass multiple argument for the hook that you are dealing with ex, add_action('the_title', 'modify_title', 10, 2 )
+ function modify_title( $title, $user_name ) {  return 'Hey, ' + $user_name + ' : ' + title; }
 */
 
 ```
