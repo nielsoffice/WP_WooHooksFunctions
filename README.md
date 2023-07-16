@@ -44,7 +44,7 @@ function modifying_return_data_title( $title ) {
 
 add_action('the_title', 'modifying_return_data_title', 10, 2 );
 function modifying_return_data_title( $title, $user_name ) {
- return 'Hey, ' + $user_name + ' : ' + title; 
+ return 'Hey, ' + $user_name + ' : ' + $title; 
 }
 // Result Post: Hey, John : Blog post for July 2023!
 
