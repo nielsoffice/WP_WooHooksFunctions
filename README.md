@@ -33,7 +33,7 @@ do_action( 'custom_name_of_hook', 3, 4 );
 ```PHP
 /* Yesterday */
 
-add_action('the_title', 'modifying_return_data_title', 10, 4 );
+add_action('the_title', 'modifying_return_data_title', 10 , 1 );
 function modifying_return_data_title( $title ) {
  return 'Hey, ' + title; 
 }
