@@ -68,10 +68,10 @@ function func_for_this_custom_filter() {
 }
 
 // if NOT filter the value return as (string) " The filter "
-$value = apply_filters( 'custom_filter_name',  $string, $arg1, $arg2 );
+$value = apply_filters( 'custom_filter_i_like',  $string, $arg1, $arg2 );
 
 // if this is FILTERED the value return as (string) " filtered this! "
-$value = apply_filters( 'custom_filter_name', 'filtered this!', $arg1, $arg2 );
+$value = apply_filters( 'custom_filter_i_like', 'filtered this!', $arg1, $arg2 );
 
 var_dump($value);
 
