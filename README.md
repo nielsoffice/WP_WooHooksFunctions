@@ -55,32 +55,34 @@ function todays_i_modifying( $args , $date, $month, $yr) {
 do_action('my_filter_name', wp_date( 'F' ), wp_date( 'j' ), wp_date( 'Y' ));
 
 /* Present & Future */
-//  Create a Custom filter | The filter callback function.
-add_filter('custom_filter_i_like','func_for_this_custom_filter', 10, 3 );
-function func_for_this_custom_filter( $string, $arg1, $arg2  ) {
+// if NOT filter the value return as (string) " Default Value "
+$value = apply_filters( 'custom_or_wp_hook',  $string);
 
-  // filtered result condition
-  if( isset($string) ) { return $string; } 
-
-  // default value set
-  return 'The filter';
-
-}
-
-// if NOT filter the value return as (string) " The filter "
-$value = apply_filters( 'custom_filter_i_like',  $string, $arg1, $arg2 );
-
-// if this is FILTERED the value return as (string) " filtered this! "
-$value = apply_filters( 'custom_filter_i_like', 'filtered this!', $arg1, $arg2 );
+// if this is FILTERED the value return as (string) " 'Value is being modified! "
+$value = apply_filters( 'custom_or_wp_hook_with_argument', $string, $arg1, $arg2 ); // just in case you need to pass an argument
 
 var_dump($value);
+
+apply_filter('custom_or_wp_hook', ' Default Value ');
+add_filter('custom_or_wp_hook', 'modifying');
+function modifying(  $string ) {
+  return 'Value is being modified!';
+}
+
+add_filter('custom_or_wp_hook_with_argument', 'modifying');
+function modifying(  $string,  $arg1, $arg2 ) {
+
+  $set = $arg1 .' '. $arg2  + 'Value is being modified!';
+  return ( $set );  
+ 
+}
+
+// NOTE: Set the result based on request return value, then place using hook 
+// Assign Custom add-hook: https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
 
 /* Conclusion: For me add_action and add_filter() are similar however let's say the add_filter is used to modify the data before and out of the database
 while the add_action will replace or add something to it, ui layout related etc... 
 */
-
-// NOTE: Set the result based on request return value, then place using hook 
-// Assign Custom add-hook: https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
 
 ```
 
