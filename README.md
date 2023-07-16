@@ -190,69 +190,6 @@ echo '</pre>';
 add_action('wp', function(){ echo '<pre>';print_r($GLOBALS['wp_filter']); echo '</pre>';exit; } );
 ```
 
-```PHP
-// WP do_action(); | Calls the callback functions that have been added to an action hook.
-#Example_1
-// Arguments that will be passed on to the functions hooked to the action.
-$a = $defined; // Some dinamic variable
-$b = 'Some string';
-
-// Do the action (activate the hook)
-do_action( 'my_hook', $a, $b );
-And functions.php of the theme contains such code:
-
-function do_my_hook( $a, $b ){
-
-	// if variable $a is equal true,
-	// then, for example, delete the post with ID 10
-	if( $a === true ) {
-		wp_delete_post( 10 );
-	}
-
-	// A here just display the value of the second variable
-	echo '<br />'.$b;
-}
-
-// add function to the hook
-add_action( 'my_hook', 'do_my_hook', 10, 2 );
-
-#Example_2
-function who_is_hook( $a, $b ) {
-
-	print_r( $a ); // `print_r` the array data inside the 1st argument
-
-	echo $b; // echo linebreak and value of 2nd argument
-}
-
-// then add it to the action hook, matching the defined number (2) of arguments in do_action
-// see [https://codex.wordpress.org/Function_Reference/add_action] in the Codex
-
-// add_action( $tag, $function_to_add, $priority, $accepted_args );
-add_action( 'i_am_hook', 'who_is_hook', 10, 2 );
-
-// Define the arguments for the action hook
-$a = array(
-	'eye patch'  => 'yes',
-	'parrot'     => true,
-	'wooden leg' => 1
-);
-
-$b = 'And Hook said: "I ate ice cream with Peter Pan."';
-
-// Executes the action hook named 'i_am_hook'
-do_action( 'i_am_hook', $a, $b );
-
-// Result:
-Array (
-	['eye patch'] => 'yes'
-	['parrot'] => true
-	['wooden leg'] => 1
-)
-And hook said: "I ate ice cream with Peter Pan."
-
-// Source: https://wp-kama.com/function/do_action
-```
-
 <br /> All WP core Hook lists 
 <br /> https://codex.wordpress.org/Plugin_API/Action_Reference
 <br /> All WP core Filter lists
