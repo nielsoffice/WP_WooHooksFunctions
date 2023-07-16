@@ -125,6 +125,23 @@ while the add_action will replace or add something to it, ui layout related etc.
 
 ```
 
+```PHP
+// Check if there is an attached custom function to the hook 
+if ( has_filter( 'the_title', 'custom_func_hook_added' ) ) {
+ 
+    remove_filter( 'the_title', 'custom_func_hook_added' );
+   
+   //You can do add_filter(); or remove_action etc...
+}
+
+```
+
+``` has_filter( string $hook_name, callable|string|array|false $callback = false ): bool|int ```
+<br /> Reference: https://developer.wordpress.org/reference/functions/has_filter/
+
+``` remove_filter( string $hook_name, callable|string|array $callback, int $priority = 10 ): bool ```
+<br /> Reference: https://developer.wordpress.org/reference/functions/remove_filter/
+
 ``` remove_action( string $hook_name, callable|string|array $callback, int $priority = 10 ): bool ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/remove_action/
 
