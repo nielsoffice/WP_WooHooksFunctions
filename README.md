@@ -31,14 +31,41 @@ do_action( 'custom_name_of_hook', 3, 4 );
 <br /> Reference: https://developer.wordpress.org/reference/functions/apply_filters/
 
 ```PHP
-// Create a Custom filter | The filter callback function.
-function add_custom_filter( $string, $arg1, $arg2 ) {
+/* Yesterday */
+/* I set the current value to my filter so soon I can modify or replace */
+// https://nielsoffice2017.wordpress.com/2021/11/21/wordpress-add_filter/
+// https://github.com/nielsoffice/WP-CPT-apply-custom-filter/blob/main/functions.php
+appy_filters('my_filter_name','Current Value is Event');
+
+/* Today w/ Priority 10 and having 3 argument */
+add_action('my_filter_name', 'todays_i_modifying', 10, 4 );
+function todays_i_modifying( $args , $date, $month, $yr) {
+ 
+  // Yesterday  $args = 'Current Value is Event'
+  // First is argument is Date
+  // Second is Month
+  // Third is YR
+
+  return $arg . ' ' . $date . ' ' . $month . ' ' . $yr;
+  // Expected Result: Current Value is Event 16, July 2023
+  
+}
+
+/* Today's date */
+do_action('my_filter_name', wp_date( 'F' ), wp_date( 'j' ), wp_date( 'Y' ));
+
+/* Present & Future */
+//  Create a Custom filter | The filter callback function.
+add_filter('custom_filter_i_like','func_for_this_custom_filter', 10, 3 );
+function func_for_this_custom_filter() {
+
   // filtered result condition
- 	if( isset($string) ) {	return $string; } 
+  if( isset($string) ) { return $string; } 
+
   // default value set
   return 'The filter';
+
 }
-add_filter( 'custom_filter_name', 'add_custom_filter', 10, 3 );
 
 // if NOT filter the value return as (string) " The filter "
 $value = apply_filters( 'custom_filter_name',  $string, $arg1, $arg2 );
