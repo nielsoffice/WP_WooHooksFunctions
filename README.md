@@ -3,7 +3,7 @@ WordPress WooCommerce all hooks and function
 
 <br /> ACTIONS : Returning the data specific while wp is doing something
 <br /> add_action() : Hooks our function set everything on it
-<br /> do_action() : Executes "hooked" function that was set 
+<br /> do_action() : Executes "hook" function that was set 
 ```PHP
 // add action | This is where we can set our function 
 add_action( 'custom_name_of_hook', 'call_back_func_name', 10, 2 );
