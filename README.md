@@ -37,7 +37,7 @@ add_action('the_title', 'modifying_return_data_title', 10 , 1 );
 function modifying_return_data_title( $title ) {
  return 'Hey, ' + title; 
 }
-// Result Post: Hey, Blog post for July 2023!
+// Result Post: Hey, Blog post for July 2023!  | /* post everywhere while WordPress does something! or fetch title and display */
 
 /* In case having more than one argument for the action hook */ 
  do_action('the_title', $title, $user->user_name );
