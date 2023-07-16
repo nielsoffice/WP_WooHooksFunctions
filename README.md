@@ -2,48 +2,79 @@
 WordPress WooCommerce all hooks and function 
 
 <br /> ACTIONS : Returning the data specific while wp is doing something
-<br /> add_action() : Hooks our function set everything on it
 <br /> do_action() : Executes "hook" function that was set 
+<br /> ``` do_action( $tag, $arg ) ``` ``` do_action( $tag, $arg1, $arg2 ) ``` ``` do_action_ref_array( $tag, $array_arg ) ```
+<br /> add_action() : Hooks our function set everything on it
+
 ```PHP
-// add action | This is where we can set our function 
-add_action( 'custom_name_of_hook', 'call_back_func_name', 10, 2 );
-function call_back_func_name( $a, $b ){
-   
-  // to pass a data to this function we have to use a do_action();
-  // Here we can do something with the parameters
-  if( $a == $b ) { return true; }
+// ex1 Execute the action hook* Custom Hook or Function without argument!
+do_action('insert_after_content');
+// Add action to hook
+add_action('insert_after_content', call_back_func_insert_after_content);
+function call_back_func_insert_after_content() { /* return content */ }
+
+// ex2 Execute the action hook* Custom Hook or Function with a single argument!
+// do_action argument is the set or default value from the given place, for instance, user class $user_id, $user_name
+$argu1 = $user_id;
+do_action('insert_after_content', $argu1 );
+
+// add action to hook
+add_action('insert_after_content', call_back_func_insert_after_content);
+function call_back_func_insert_after_content(  $argu1 ) {
+
+  // Default value is $argu1 = $user_id;
+  /* work on it $argu1 then return content... */
+
 }
 
-// do_action | This is where we can pass the argument that we set from our hooks
+// ex3 Execute the action hook* Custom Hook or Function two arguments !
+// do_action argument is the set or default value from the given place, for instance, user class $user_id, $user_name
+// It depends on how this hook will work for instance this hook return data user_id and user_role
+do_action('get_user_capability', $argu1, $argu2 );
+// add action to hook
+add_action('get_user_capability', call_back_func_get_user_capability);
+function call_back_func_insert_after_content(  $argu1, $argu2 ) {
+   // Default value are user_id and user_role
+   /* work on it return content... */
+   /* Note: this content will run or execute to the place where do_action() are being place 
+     and return the output to the front end for instance or admin if it is assigned or placed to wp admin
+   */
 
-do_action( 'custom_name_of_hook', 3, 4 );
-// Result: false
+}
+
+// ex3 Execute the action hook* Custom Hook or Function without argument!
+// This is the same as the above example however this is an array approach
+do_action('insert_after_content', [ ] );
+//Add action to hook
+add_action('insert_after_content', call_back_func_insert_after_content);
+function call_back_func_insert_after_content(  []  ) { /* return content... */ }
+
+// Default WP Hook assigned in WP core 
+add_action('the_title', 'modifying_return_data_title', 10 , 1 );
+// As you can see this is not a custom hook by default wp only assigned this hook for 1 argument by default
+function modifying_return_data_title( $title ) {
+ return 'Hey, ' + title; 
+}
+// Result Post: Hey, Blog post for July 2023!  | /* post everywhere while WordPress does something! or fetch the title and display */
+
+add_action('the_title', 'modifying_return_data_title', 10, 2 );
+// As you can see this is not a custom hook by default wp only assigned this hook for 1 argument by default
+function modifying_return_data_title( $title ) {
+ // get $user_name =  get_wp_username_function() // this is example only! 
+ return 'Hey, ' + $user_name + ' : ' + $title; 
+}
+// Result Post: Hey, John : Blog post for July 2023! | /* post everywhere while WordPress does something! or fetch the title and display */
+
 ```
 <br /> HOOKS
-<br /> add_filter() : Hooks our function modify data on it
 <br /> apply_filter() : Executes the "hook" function that was set from it! 
+<br /> add_filter() : Hooks our function modify data on it
 
 <br /> ``` apply_filters( string $hook_name, mixed $value, mixed $args ): mixed ```
 <br /> Reference: https://developer.wordpress.org/reference/functions/apply_filters/
 
 ```PHP
 /* Yesterday */
-
-add_action('the_title', 'modifying_return_data_title', 10 , 1 );
-function modifying_return_data_title( $title ) {
- return 'Hey, ' + title; 
-}
-// Result Post: Hey, Blog post for July 2023!  | /* post everywhere while WordPress does something! or fetch the title and display */
-
-/* In case having more than one argument for the action hook */ 
- do_action('the_title', $title, $user->user_name );
-
-add_action('the_title', 'modifying_return_data_title', 10, 2 );
-function modifying_return_data_title( $title, $user_name ) {
- return 'Hey, ' + $user_name + ' : ' + $title; 
-}
-// Result Post: Hey, John : Blog post for July 2023! | /* post everywhere while WordPress does something! or fetch the title and display */
-
 /* Present & Future */
 // if NOT filter the value return as (string) " Default Value "
 $value = apply_filters( 'custom_or_wp_hook',  $string);
@@ -65,7 +96,7 @@ function modifying(  $string ) {
   return 'Value is being modified!';
 }
 
-add_filter('custom_or_wp_hook_with_argument', 'modifying');
+add_filter('custom_or_wp_hook_with_argument', 'modifying', 10, 3);
 function modifying(  $string,  $user_name, $user_id ) {
 
   $set = $user_name .' ID: '. $user_id  + 'Value is being modified!';
