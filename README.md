@@ -45,8 +45,7 @@ function todays_i_modifying( $args , $date, $month, $yr) {
   // First is argument is Date
   // Second is Month
   // Third is YR
-  $arg = '<i>' . '</i>';
-
+  
   return $arg. ' '. $date . ' ' . $month . ' ' . $yr;
   // Expected Result: Current Value is Event 16, July 2023
   
