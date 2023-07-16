@@ -53,9 +53,12 @@ function modifying_return_data_title( $title, $user_name ) {
 $value = apply_filters( 'custom_or_wp_hook',  $string);
 
 // if this is FILTERED the value return as (string) " 'Value is being modified! "
-$value = apply_filters( 'custom_or_wp_hook_with_argument', $string, $arg1, $arg2 ); // just in case you need to pass an argument
+$value = apply_filters( 'custom_or_wp_hook_with_argument', $string, $user_name, $user->id ); // just in case you need to pass an argument
 
 var_dump($value);
+
+/* Result in case of multiple argument : */ 
+// John ID: 2 Value is being modified!;
 
 apply_filter('custom_or_wp_hook', ' Default Value ');
 add_filter('custom_or_wp_hook', 'modifying');
@@ -64,12 +67,13 @@ function modifying(  $string ) {
 }
 
 add_filter('custom_or_wp_hook_with_argument', 'modifying');
-function modifying(  $string,  $arg1, $arg2 ) {
+function modifying(  $string,  $user_name, $user_id ) {
 
-  $set = $arg1 .' '. $arg2  + 'Value is being modified!';
+  $set = $user_name .' ID: '. $user_id  + 'Value is being modified!';
   return ( $set );  
  
 }
+
 
 // NOTE: Set the result based on request return value, then place using hook 
 // Assign Custom add-hook: https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
