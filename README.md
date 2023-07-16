@@ -32,27 +32,21 @@ do_action( 'custom_name_of_hook', 3, 4 );
 
 ```PHP
 /* Yesterday */
-/* I set the current value to my filter so soon I can modify or replace */
-// https://nielsoffice2017.wordpress.com/2021/11/21/wordpress-add_filter/
-// https://github.com/nielsoffice/WP-CPT-apply-custom-filter/blob/main/functions.php
-appy_filters('my_filter_name','Current Value is Event');
 
-/* Today w/ Priority 10 and having 3 argument */
-add_action('my_filter_name', 'todays_i_modifying', 10, 4 );
-function todays_i_modifying( $args , $date, $month, $yr) {
- 
-  // Yesterday  $args = 'Current Value is Event'
-  // First is argument is Date
-  // Second is Month
-  // Third is YR
-  
-  return $arg. ' '. $date . ' ' . $month . ' ' . $yr;
-  // Expected Result: Current Value is Event 16, July 2023
-  
+add_action('the_title', 'modifying_return_data_title', 10, 4 );
+function modifying_return_data_title( $title ) {
+ return 'Hey, ' + title; 
 }
+// Result Post: Hey, Blog post for July 2023!
 
-/* Today's date */
-do_action('my_filter_name', wp_date( 'F' ), wp_date( 'j' ), wp_date( 'Y' ));
+/* In case having more than one argument for the action hook */ 
+ do_action('the_title', $title, $user->user_name );
+
+add_action('the_title', 'modifying_return_data_title', 10, 2 );
+function modifying_return_data_title( $title, $user_name ) {
+ return 'Hey, ' + $user_name + ' : ' + title; 
+}
+// Result Post: Hey, John : Blog post for July 2023!
 
 /* Present & Future */
 // if NOT filter the value return as (string) " Default Value "
