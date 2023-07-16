@@ -57,7 +57,10 @@ $value = apply_filters( 'custom_or_wp_hook_with_argument', $string, $user_name, 
 
 var_dump($value);
 
-/* Result in case of multiple argument : */ 
+/* Result : */ 
+// Value is being modified!;
+
+/* Result in case of multiple arguments: */ 
 // John ID: 2 Value is being modified!;
 
 apply_filter('custom_or_wp_hook', ' Default Value ');
