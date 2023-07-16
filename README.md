@@ -15,7 +15,7 @@ function call_back_func_insert_after_content() { /* return content */ }
 
 // ex2 Execute the action hook* Custom Hook or Function with a single argument!
 // do_action argument is the set or default value from the given place, for instance, user class $user_id, $user_name
-$argu1 = $user_id;
+$argu1 = $user_id; // ex 1
 do_action('insert_after_content', $argu1 );
 
 // add action to hook
@@ -30,8 +30,8 @@ function call_back_func_insert_after_content(  $argu1 ) {
 // ex3 Execute the action hook* Custom Hook or Function two arguments !
 // do_action argument is the set or default value from the given place, for instance, user class $user_id, $user_name
 // It depends on how this hook will work for instance this hook return data user_id and user_role
-$argu1 = user_id;
-$argu2 = user_role;
+$argu1 = user_id;  // ex. id = 1
+$argu2 = user_role; // ex. administrator
 do_action('get_user_capability', $argu1, $argu2 );
 // add action to hook
 add_action('get_user_capability', call_back_func_get_user_capability);
