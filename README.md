@@ -30,14 +30,16 @@ function call_back_func_insert_after_content(  $argu1 ) {
 // ex3 Execute the action hook* Custom Hook or Function two arguments !
 // do_action argument is the set or default value from the given place, for instance, user class $user_id, $user_name
 // It depends on how this hook will work for instance this hook return data user_id and user_role
+$argu1 = user_id;
+$argu2 = user_role;
 do_action('get_user_capability', $argu1, $argu2 );
 // add action to hook
 add_action('get_user_capability', call_back_func_get_user_capability);
 function call_back_func_insert_after_content(  $argu1, $argu2 ) {
    // Default value are user_id and user_role
    /* work on it return content... */
-   /* Note: this content will run or execute to the place where do_action() are being place 
-     and return the output to the front end for instance or admin if it is assigned or placed to wp admin
+   /* Note: this content will run or execute to the place where do_action() are being placed 
+     and return the output to the front end for instance or admin if it is assigned or placed to wp-admin
    */
 
 }
