@@ -37,7 +37,7 @@ add_action('the_title', 'modifying_return_data_title', 10 , 1 );
 function modifying_return_data_title( $title ) {
  return 'Hey, ' + title; 
 }
-// Result Post: Hey, Blog post for July 2023!  | /* post everywhere while WordPress does something! or fetch title and display */
+// Result Post: Hey, Blog post for July 2023!  | /* post everywhere while WordPress does something! or fetch the title and display */
 
 /* In case having more than one argument for the action hook */ 
  do_action('the_title', $title, $user->user_name );
@@ -46,7 +46,7 @@ add_action('the_title', 'modifying_return_data_title', 10, 2 );
 function modifying_return_data_title( $title, $user_name ) {
  return 'Hey, ' + $user_name + ' : ' + $title; 
 }
-// Result Post: Hey, John : Blog post for July 2023!
+// Result Post: Hey, John : Blog post for July 2023! | /* post everywhere while WordPress does something! or fetch the title and display */
 
 /* Present & Future */
 // if NOT filter the value return as (string) " Default Value "
