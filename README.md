@@ -202,6 +202,9 @@ add_action('wp', function(){ echo '<pre>';print_r($GLOBALS['wp_filter']); echo '
 <br /> General Snippet
 <br /> https://woocommerce.com/documentation/plugins/woocommerce/woocommerce-codex/snippets/
 
+<br /> Woo Class
+<br /> https://woocommerce.com/document/class-reference/
+
 <br /> Create/Assigned a custom hooks
 <br /> https://nielsoffice2017.wordpress.com/2022/08/04/wordpress-using-and-create-custom-hooks/
 <br /> Add Filter WP Core
