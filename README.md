@@ -105,7 +105,7 @@ function modifying(  $string,  $user_name, $user_id ) {
   return ( $set );  
  
 }
-
+// https://wp-kama.com/function/get_the_title
 $title_filtered = apply_filters( 'the_title', $title , $date );
 add_filters('the_title', modifying_title, 10, 2); 
 function modifying_title( $title, $date ) {
