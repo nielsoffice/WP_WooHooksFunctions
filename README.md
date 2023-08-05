@@ -1,6 +1,15 @@
 # WP_WooHooksFunction
 WordPress WooCommerce all hooks and function 
 
+#NOTE: WP init | Front End/Public or Admin
+<br /> Reference: ``` https://developer.wordpress.org/reference/hooks/wp_loaded/ ```
+<br /> Front-End: init -> widgets_init -> wp_loaded
+<br /> Admin: init -> widgets_init -> wp_loaded -> admin_menu -> admin_init
+```PHP
+add_action('init', function() { ... });
+add_action('admin_init', function() { ... })
+```
+
 <br /> ACTIONS : Returning the data specific while wp is doing something
 <br /> do_action() : Executes "hook" function that was set 
 <br /> ``` do_action( $tag, $arg ) ``` ``` do_action( $tag, $arg1, $arg2 ) ``` ``` do_action_ref_array( $tag, $array_arg ) ```
